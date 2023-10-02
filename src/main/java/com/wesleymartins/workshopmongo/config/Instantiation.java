@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import com.wesleymartins.workshopmongo.domain.Post;
 import com.wesleymartins.workshopmongo.domain.User;
 import com.wesleymartins.workshopmongo.dto.AuthorDTO;
+import com.wesleymartins.workshopmongo.dto.CommentDTO;
 import com.wesleymartins.workshopmongo.repositories.PostRepository;
 import com.wesleymartins.workshopmongo.repositories.UserRepository;
 
@@ -41,6 +42,9 @@ public class Instantiation implements CommandLineRunner {
 		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para Sâo Paulo, abraço!", new AuthorDTO(maria));
 		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia!", "Acordei feliz hoje!", new AuthorDTO(maria));
 		
+		CommentDTO c1 = new CommentDTO("Boa viagem, mano!", sdf.parse("21/03/2023"), new AuthorDTO(alex));
+		CommentDTO c2 = new CommentDTO("Aproveite", sdf.parse("22/03/2018"), new AuthorDTO(bob));
+		CommentDTO c3 = new CommentDTO("Tenha um ótimo dia!", sdf.parse("23/03/2023"), new AuthorDTO(alex));
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
